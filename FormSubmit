@@ -1,0 +1,6 @@
+<form action="https://formsubmit.co/SEUEMAIL@example.com" method="POST">
+  <input type="text" name="name" placeholder="Seu nome" required>
+  <input type="email" name="email" placeholder="Seu email" required>
+  <textarea name="message" placeholder="Sua mensagem" required></textarea>
+  <button type="submit">Enviar</button>
+</form>
