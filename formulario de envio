@@ -1,0 +1,23 @@
+<form id="form">
+  <input type="text" id="nome" placeholder="Nome" required />
+  <input type="email" id="email" placeholder="Email" required />
+  <textarea id="mensagem" placeholder="Mensagem" required></textarea>
+  <button type="submit">Enviar</button>
+</form>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  const supabase = createClient('SUA_SUPABASE_URL', 'SUA_SUPABASE_ANON_KEY');
+
+  document.getElementById("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    const { error } = await supabase.from("mensagens").insert([{ nome, email, mensagem }]);
+    if (error) alert("Erro ao enviar.");
+    else alert("Mensagem enviada!");
+  });
+</script>
