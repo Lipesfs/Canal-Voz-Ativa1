@@ -64,9 +64,9 @@
       <label for="category">Categoria:</label>
       <select id="category" required>
         <option value="">Selecione</option>
-        <option value="sugestao">💡Sugestão</option>
-        <option value="denuncia">❗️Denúncia</option>
-        <option value="opiniao">✅️Opinião</option>
+        <option value="sugestao">Sugestão</option>
+        <option value="denuncia">Denúncia</option>
+        <option value="opiniao">Opinião</option>
       </select>
 
       <label for="message">Mensagem:</label>
@@ -84,7 +84,7 @@
 
       if (category && message) {
         // Aqui você pode enviar os dados para um backend ou salvar localmente
-        alert('Mensagem enviada com sucesso!✅️');
+        alert('Mensagem enviada com sucesso!');
         this.reset();
       } else {
         alert('Preencha todos os campos.');
