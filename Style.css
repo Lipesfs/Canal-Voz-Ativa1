@@ -1,75 +1,42 @@
-:root {
-  --bg: #1e1e2f;
-  --text: #f5f5f5;
-  --primary: #00ff9c;
-  --accent: #00cfff;
-  --font: 'Fira Code', monospace;
-}
-
-* {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
-
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: var(--font);
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
-
 header {
+  background-color: #2563eb;
+  color: white;
+  padding: 1rem;
   text-align: center;
-  margin-bottom: 2rem;
 }
-
-h1 {
-  color: var(--primary);
-  font-size: 2.5rem;
-}
-
-.card {
-  background: #29293d;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 255, 156, 0.2);
-  margin: 1rem 0;
-  width: 90%;
+main {
   max-width: 600px;
-  transition: transform 0.3s ease, opacity 0.6s ease;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-.card a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: bold;
+label {
+  display: block;
+  margin-top: 1rem;
 }
-
-.card a:hover {
-  text-decoration: underline;
+textarea, select, button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }
-
-footer {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #aaa;
+button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
 }
-
-/* Animações */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+button:hover {
+  background-color: #1d4ed8;
 }
