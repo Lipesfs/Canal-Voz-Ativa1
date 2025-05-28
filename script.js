@@ -4,7 +4,7 @@ document.getElementById('messageForm').addEventListener('submit', function (e) {
   const message = document.getElementById('message').value;
 
   if (category && message) {
-    alert('Mensagem enviada com sucesso!');
+    alert('Mensagem enviada! Sua mensagem foi recebida com sucesso e será analisada pela nossa equipe.');
     this.reset();
   } else {
     alert('Preencha todos os campos.');
