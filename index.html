@@ -33,8 +33,7 @@
 <form id="form">
   <input type="text" id="nome" placeholder="Seu nome" required />
   <input type="email" id="email" placeholder="Seu email" required />
-  <textarea id="mensagem" placeholder="Sua mensagem" required></textarea>
-  <button type="submit">Enviar</button>
+  <button type="submit">Entrar</button>
 </form>
 
 <script type="module">
@@ -46,7 +45,7 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
     e.preventDefault();
     const nome = document.getElementById("nome").value;
     const email = document.getElementById("email").value;
-    const mensagem = document.getElementById("mensagem").value;
+    
 
     const { error } = await supabase.from("mensagens").insert([{ nome, email, mensagem }]);
 
