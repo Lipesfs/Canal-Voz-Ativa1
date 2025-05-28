@@ -1,2 +1,2 @@
-# Canal-Voz-Ativa1
+# Canal Voz Ativa 
 Canal anônimo de comunicação interna.
