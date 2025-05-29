@@ -1,3 +1,4 @@
+/* Estilo geral */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -6,106 +7,125 @@ body {
   color: #333;
 }
 
+/* Cabeçalho */
 header {
   background-color: #00796b;
   color: white;
-  padding: 2.5rem 1rem;
+  padding: 2rem 1rem;
   text-align: center;
 }
 
 header h1 {
+  margin: 0 0 0.5rem 0;
   font-size: 2rem;
-  margin-bottom: 0.5rem;
 }
 
 header p {
   font-size: 1rem;
-  margin: 0.5rem 0 0;
+  margin: 0.5rem 0 0 0;
 }
 
 header a {
-  color: #e0f7fa;
+  color: #bbdefb;
   text-decoration: underline;
-  display: block;
-  margin-top: 0.5rem;
-  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 0.5rem;
 }
 
+/* Conteúdo principal */
 main {
   padding: 2rem 1rem;
   max-width: 600px;
   margin: auto;
   background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
+/* Títulos */
 h2 {
-  margin-bottom: 1.5rem;
-  font-size: 1.6rem;
-  color: #004d40;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 
+/* Formulário */
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 label {
   font-weight: 600;
-  font-size: 1rem;
   margin-bottom: 0.25rem;
+  font-size: 1rem;
 }
 
+/* Campos */
 select,
-textarea,
-button {
-  padding: 0.9rem 1rem;
+textarea {
+  padding: 0.75rem;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 12px;
+  border-radius: 10px;
   font-family: inherit;
-  width: 100%;
+  background-color: #fefefe;
   box-sizing: border-box;
 }
 
 textarea::placeholder {
-  color: #aaa;
+  color: #999;
 }
 
+/* Botões */
 button {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
   background-color: #00796b;
   color: white;
   border: none;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
   background-color: #004d40;
+  transform: scale(1.02);
 }
 
+/* Botão da área admin */
+.admin-btn {
+  margin-top: 2rem;
+  background-color: #616161;
+}
+
+.admin-btn:hover {
+  background-color: #424242;
+}
+
+/* Mensagem de resposta */
 #responseMsg {
   margin-top: 1rem;
   color: green;
-  font-weight: 500;
+  font-weight: bold;
   text-align: center;
 }
 
+/* Responsividade */
 @media (max-width: 480px) {
   header h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
-  h2 {
-    font-size: 1.3rem;
+  main {
+    padding: 1.5rem 1rem;
   }
 
   button {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
