@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Administrador - Canal Voz Ativa</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function autenticar() {
+      const usuario = document.getElementById("usuario").value;
+      const senha = document.getElementById("senha").value;
+
+      if (usuario === "admin" && senha === "1234") {
+        window.location.href = "painel.html";
+      } else {
+        alert("Credenciais inválidas. Tente novamente.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Login do Administrador</h1>
+  </header>
+  <main>
+    <form onsubmit="autenticar(); return false;">
+      <label for="usuario">Usuário:</label><br />
+      <input type="text" id="usuario" required /><br />
+
+      <label for="senha">Senha:</label><br />
+      <input type="password" id="senha" required /><br />
+
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+    <a href="index.html" class="btn">Voltar</a>
+  </main>
+</body>
+</html>
