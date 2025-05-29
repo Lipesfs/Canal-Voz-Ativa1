@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login Administrador - Canal Voz Ativa</title>
-  <link rel="stylesheet" href="style.css" />
-  <script>
-    function autenticar() {
-      const usuario = document.getElementById("usuario").value;
-      const senha = document.getElementById("senha").value;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Administrador - Canal Voz Ativa</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function autenticar(event) {
+      event.preventDefault();
 
-      if (usuario === "felisantana" && senha === "ff3415152") {
-        // Redireciona para a planilha Google Sheets
-        window.location.href = "https://docs.google.com/spreadsheets/d/1c3zOougRuxMDGis1fqO9dzdIDbhrhnqMqCS9YhM_RFM/edit?resourcekey=&gid=434998676#gid=434998676";
-      } else {
-        alert("Credenciais inválidas. Tente novamente.");
-      }
-    }
-  </script>
+      const usuario = document.getElementById("usuario").value.trim();
+      const senha = document.getElementById("senha").value.trim();
+
+      if (usuario === "felisantana" && senha === "ff3415152") {
+        window.location.href = "https://docs.google.com/spreadsheets/d/1c3zOougRuxMDGis1fqO9dzdIDbhrhnqMqCS9YhM_RFM/edit?resourcekey=&gid=434998676#gid=434998676";
+      } else {
+        alert("Credenciais inválidas. Tente novamente.");
+        document.getElementById("senha").value = "";
+      }
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Login do Administrador</h1>
-  </header>
-  <main>
-    <form onsubmit="autenticar(); return false;">
-      <label for="usuario">Usuário:</label><br />
-      <input type="text" id="usuario" required /><br />
+  <header>
+    <h1>Login do Administrador</h1>
+  </header>
+  <main>
+    <form onsubmit="autenticar(event)">
+      <label for="usuario">Usuário:</label><br />
+      <input type="text" id="usuario" required /><br />
 
-      <label for="senha">Senha:</label><br />
-      <input type="password" id="senha" required /><br />
+      <label for="senha">Senha:</label><br />
+      <input type="password" id="senha" required /><br />
 
-      <button type="submit" class="btn">Entrar</button>
-    </form>
-    <a href="index.html" class="btn">Voltar</a>
-  </main>
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+    <a href="index.html" class="btn">Voltar</a>
+  </main>
 </body>
 </html>
