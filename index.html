@@ -5,10 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Canal Voz Ativa</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2563eb;
+      color: white;
+      padding: 1rem;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .admin-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: white;
+      color: #2563eb;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .admin-button:hover {
+      background-color: #e0e7ff;
+    }
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    textarea, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background-color: #1d4ed8;
+    }
+    #responseMsg {
+      margin-top: 1rem;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Canal Voz Ativa</h1>
+    <a href="admin.html" class="admin-button">Área Administrativa</a>
     <p>Envie sugestões, denúncias ou opiniões de forma anônima</p>
   </header>
 
@@ -27,7 +99,7 @@
       <textarea id="message" name="entry.1250049880" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea>
 
       <button type="submit">Enviar anonimamente</button>
-      <p id="responseMsg" style="color: green; margin-top: 1rem;"></p>
+      <p id="responseMsg"></p>
     </form>
   </main>
 
@@ -37,9 +109,8 @@
 
       const form = e.target;
       const formData = new FormData();
-
-      formData.append("entry.2113850998", form.category.value); // Categoria
-      formData.append("entry.1250049880", form.message.value);  // Mensagem
+      formData.append("entry.2113850998", form.category.value);
+      formData.append("entry.1250049880", form.message.value);
 
       fetch("https://docs.google.com/forms/d/e/1FAIpQLScm1Ad7PE5MA83N-3GikkAs1cNjxx9iqT0iIyln8Kted5iSgw/formResponse", {
         method: "POST",
