@@ -1,43 +1,57 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Canal Voz Ativa</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>Canal Voz Ativa</h1>
-    <p>Participe da construção de uma sociedade melhor.
-       Envie sugestões, denúncias ou opiniões de forma completamente anônima e segura. Sua participação é fundamental para o progresso da nossa comunidade.</p>
+    <p>Envie sugestões, denúncias ou opiniões de forma anônima</p>
   </header>
 
   <main>
     <h2>Envie sua mensagem</h2>
-    <form id="messageForm" action="https://docs.google.com/forms/d/e/1FAIpQLScm1Ad7PE5MA83N-3GikkAs1cNjxx9iqT0iIyln8Kted5iSgw/formResponse" method="POST" target="_blank">
-  <label for="category">Categoria:</label>
-  <select id="category" name="entry.2113850998" required>
-    <option value="">Selecione</option>
-    <option value="Sugestão">Sugestão</option>
-    <option value="Denúncia">Denúncia</option>
-    <option value="Opinião">Opinião</option>
-  </select>
+    <form id="messageForm">
+      <label for="category">Categoria:</label>
+      <select id="category" name="entry.2113850998" required>
+        <option value="">Selecione</option>
+        <option value="Sugestão">Sugestão</option>
+        <option value="Denúncia">Denúncia</option>
+        <option value="Opinião">Opinião</option>
+      </select>
 
-  <label for="message">Mensagem:</label>
-  <textarea id="message" name="entry.1250049880" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea>
+      <label for="message">Mensagem:</label>
+      <textarea id="message" name="entry.1250049880" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea>
 
-  <button type="submit">Enviar anonimamente</button>
-</form>
-
-      
-
-    <!-- Botão para área administrativa -->
-    <button onclick="window.location.href='admin.html'" class="admin-btn">Área Administrativa</button>
+      <button type="submit">Enviar anonimamente</button>
+      <p id="responseMsg" style="color: green; margin-top: 1rem;"></p>
+    </form>
   </main>
-</body>
-</html>
 
+  <script>
+    document.getElementById('messageForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData();
+
+      formData.append("entry.2113850998", form.category.value); // Categoria
+      formData.append("entry.1250049880", form.message.value);  // Mensagem
+
+      fetch("https://docs.google.com/forms/d/e/1FAIpQLScm1Ad7PE5MA83N-3GikkAs1cNjxx9iqT0iIyln8Kted5iSgw/formResponse", {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      }).then(() => {
+        document.getElementById("responseMsg").textContent = "Mensagem enviada com sucesso!";
+        form.reset();
+      }).catch(() => {
+        document.getElementById("responseMsg").textContent = "Erro ao enviar mensagem.";
+      });
+    });
+  </script>
 </body>
 </html>
