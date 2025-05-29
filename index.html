@@ -17,7 +17,7 @@
     header {
       background-color: #00796b;
       color: white;
-      padding: 2rem;
+      padding: 2.5rem 1rem 2rem;
       text-align: center;
       position: relative;
     }
@@ -26,18 +26,22 @@
       position: absolute;
       top: 1rem;
       right: 1rem;
-      background-color: white;
+      background-color: #ffffff;
       color: #00796b;
       border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      border-radius: 12px;
       cursor: pointer;
       font-weight: bold;
       text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
     }
 
     .admin-button:hover {
-      background-color: #b2dfdb;
+      background-color: #e0f2f1;
+      transform: scale(1.05);
     }
 
     main {
@@ -94,6 +98,16 @@
       font-weight: bold;
       text-align: center;
     }
+
+    /* Responsivo para telas menores */
+    @media (max-width: 480px) {
+      .admin-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -145,3 +159,4 @@
   </script>
 </body>
 </html>
+
