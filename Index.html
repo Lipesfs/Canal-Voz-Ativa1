@@ -1,80 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Canal Voz Ativa</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color:#f3f4f6;
-      margin:0;
-      padding:0;
-    }
-    header {
-      background-color:#2563eb;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    main {
-      max-width:600px;
-      margin:2rem auto;
-      padding:2rem;
-      background-color:white;
-      border-radius:8px;
-      box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    h2 {
-      margin-bottom:1rem;
-    }
-    label {
-      display:block;
-      margin-top:1rem;
-    }
-    textarea, select, button {
-      width:100%;
-      padding:0.75rem;
-      margin-top:0.5rem;
-      border:1px solid #ccc;
-      border-radius:4px;
-      font-size:1rem;
-    }
-    button {
-      background-color:#2563eb;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin-top:1rem;
-    }
-    button:hover {
-      background-color:#1d4ed8;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canal Voz Ativa</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Canal Voz Ativa</h1>
-    <p>Envie sugestões, denúncias ou opiniões de forma anônima</p>
-  </header>
+  <header>
+    <h1>Canal Voz Ativa</h1>
+    <p>Envie sugestões, denúncias ou opiniões de forma anônima</p>
+  </header>
 
-  <main>
-    <h2>Envie sua mensagem</h2>
+  <main>
+    <h2>Envie sua mensagem</h2>
+    <form id="messageForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdgV_MwRBzkwmD1LU-ZydV-DChzkXoKWpUXXiPAlE1z8x8Pqg/formResponse" method="POST" target="_blank">
+      <label for="category">Categoria:</label>
+      <select id="category" name="entry.1462392325" required>
+        <option value="">Selecione</option>
+        <option value="Sugestão">Sugestão</option>
+        <option value="Denúncia">Denúncia</option>
+        <option value="Opinião">Opinião</option>
+      </select>
 
-    <form id="messageForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdgV_MwRBzkwmD1LU-ZydV-DChzkXoKWpUXXiPAlE1z8x8Pqg/formResponse" method="POST" target="_blank">
-      <label for="category">Categoria:</label>
-      <select id="category" name="entry.1462392325" required>
-        <option value="">Selecione</option>
-        <option value="Sugestão">Sugestão</option>
-        <option value="Denúncia">Denúncia</option>
-        <option value="Opinião">Opinião</option>
-      </select>
+      <label for="message">Mensagem:</label>
+      <textarea id="message" name="entry.1177178235" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea>
 
-      <label for="message">Mensagem:</label>
-      <textarea id="message" name="entry.1177178235" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea>
-
-      <button type="submit">Enviar anonimamente</button>
-    </form>
-  </main>
+      <button type="submit">Enviar anonimamente</button>
+    </form>
+  </main>
 </body>
 </html>
