@@ -1,12 +1,20 @@
-document.getElementById('messageForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const category = document.getElementById('category').value;
-  const message = document.getElementById('message').value;
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("formMensagem");
+    const campo = document.getElementById("mensagem");
 
-  if (category && message) {
-    alert('Mensagem enviada com sucesso!');
-    this.reset();
-  } else {
-    alert('Preencha todos os campos.');
-  }
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const mensagem = campo.value.trim();
+
+            if (mensagem === "") {
+                alert("Por favor, digite uma mensagem.");
+                return;
+            }
+
+            alert("Mensagem enviada com sucesso!");
+            campo.value = "";
+        });
+    }
 });
