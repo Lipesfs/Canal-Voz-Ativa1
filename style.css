@@ -1,42 +1,68 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f3f4f6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
 }
+
 header {
-  background-color: #2563eb;
+  background-color: #00796b;
   color: white;
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
 }
+
 main {
-  max-width: 600px;
-  margin: 2rem auto;
   padding: 2rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: auto;
 }
+
+h1, h2 {
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 label {
-  display: block;
-  margin-top: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
 }
-textarea, select, button {
-  width: 100%;
+
+select, textarea, button {
   padding: 0.75rem;
-  margin-top: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
 }
+
+textarea::placeholder {
+  color: #999;
+}
+
 button {
-  background-color: #2563eb;
+  background-color: #00796b;
   color: white;
   border: none;
   cursor: pointer;
-  margin-top: 1rem;
+  transition: background 0.3s ease;
 }
+
 button:hover {
-  background-color: #1d4ed8;
+  background-color: #004d40;
+}
+
+.admin-btn {
+  margin-top: 2rem;
+  background-color: #616161;
+}
+
+.admin-btn:hover {
+  background-color: #424242;
 }
