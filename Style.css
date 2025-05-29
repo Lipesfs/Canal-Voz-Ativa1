@@ -40,3 +40,127 @@ button {
 button:hover {
   background-color: #1d4ed8;
 }
+
+from zipfile import ZipFile
+import os
+
+# Criar a estrutura de arquivos
+project_dir = "/mnt/data/CanalVozAtiva"
+os.makedirs(project_dir, exist_ok=True)
+
+# Conteúdo do index.html
+html_content = """<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canal Voz Ativa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Canal Voz Ativa</h1>
+    <p>Envie sugestões, denúncias ou opiniões de forma anônima</p>
+  </header>
+
+  <main>
+    <h2>Envie sua mensagem</h2>
+    <form id="messageForm">
+      <label for="category">Categoria:</label>
+      <select id="category" required>
+        <option value="">Selecione</option>
+        <option value="sugestao">Sugestão</option>
+        <option value="denuncia">Denúncia</option>
+        <option value="opiniao">Opinião</option>
+      </select>
+
+      <label for="message">Mensagem:</label>
+      <textarea id="message" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea>
+
+      <button type="submit">Enviar anonimamente</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+"""
+
+# Conteúdo do style.css
+css_content = """body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #2563eb;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+main {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  margin-bottom: 1rem;
+}
+label {
+  display: block;
+  margin-top: 1rem;
+}
+textarea, select, button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+button:hover {
+  background-color: #1d4ed8;
+}
+"""
+
+# Conteúdo do script.js
+js_content = """document.getElementById('messageForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const category = document.getElementById('category').value;
+  const message = document.getElementById('message').value;
+
+  if (category && message) {
+    alert('Mensagem enviada com sucesso!');
+    this.reset();
+  } else {
+    alert('Preencha todos os campos.');
+  }
+});
+"""
+
+# Criar os arquivos
+with open(os.path.join(project_dir, "index.html"), "w", encoding="utf-8") as f:
+    f.write(html_content)
+with open(os.path.join(project_dir, "style.css"), "w", encoding="utf-8") as f:
+    f.write(css_content)
+with open(os.path.join(project_dir, "script.js"), "w", encoding="utf-8") as f:
+    f.write(js_content)
+
+# Criar o ZIP
+zip_path = "/mnt/data/CanalVozAtiva.zip"
+with ZipFile(zip_path, 'w') as zipf:
+    for filename in ["index.html", "style.css", "script.js"]:
+        zipf.write(os.path.join(project_dir, filename), arcname=filename)
+
+zip_path
