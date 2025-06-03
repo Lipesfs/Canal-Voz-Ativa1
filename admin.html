@@ -1,35 +1,38 @@
-<form onsubmit="fazerLogin(); return false;">
-  <label for="usuario">Usuário:</label><br />
-  <input type="text" id="usuario" required /><br />
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Administrador - Canal Voz Ativa</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function autenticar() {
+      const usuario = document.getElementById("usuario").value;
+      const senha = document.getElementById("senha").value;
 
-  <label for="senha">Senha:</label><br />
-  <input type="password" id="senha" required /><br />
-
-  <button type="submit" class="btn">Entrar</button>
-</form>
-
-<a href="index.html" class="btn">Voltar</a>
-
-<script>
-  async function fazerLogin() {
-    const usuario = document.getElementById("usuario").value;
-    const senha = document.getElementById("senha").value;
-
-    const formData = new FormData();
-    formData.append("usuario", usuario);
-    formData.append("senha", senha);
-
-    const response = await fetch("https://script.google.com/macros/s/AKfycbz0Ixbs2vRqmrxfnm8Ru1-JeNOAYSOKx-2L3Yny-OdKWtSk-DkxL2PYOosRUn56ruQ8ZA/exec", {
-      method: "POST",
-      body: formData,
-    });
-
-    const resultado = await response.text();
-
-    if (resultado === "ok") {
-      window.location.href = "https://docs.google.com/spreadsheets/d/1gBflEUCjzvcIvUQfrqTia4_GkR6BB4zDXcxBB_kFRnw/edit?usp=sharing";
-    } else {
-      alert("Usuário ou senha inválido.");
+      if (usuario === "felisantana" && senha === "ff3415152") {
+        window.location.href = "painel.html";
+      } else {
+        alert("Credenciais inválidas. Tente novamente.");
+      }
     }
-  }
-</script>
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Login do Administrador</h1>
+  </header>
+  <main>
+    <form onsubmit="autenticar(); return false;">
+      <label for="usuario">Usuário:</label><br />
+      <input type="text" id="usuario" required /><br />
+
+      <label for="senha">Senha:</label><br />
+      <input type="password" id="senha" required /><br />
+
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+    <a href="index.html" class="btn">Voltar</a>
+  </main>
+</body>
+</html>
